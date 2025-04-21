@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "Question": "What technique is being used in this video clip?",
+        "Video": "https://www.youtube.com/embed/2IpVDkg3kL8?si=xqshgpsO1hx0E21h",
+        "AnswerChoices": ["Glittering Generalities", "Appeal to Fear", "Card Stacking"],
+        "Answer": "Card Stacking"
+    },
+    {
+        "id": 2,
+        "Question": "Which technique is being used in this video clip?",
+        "Video": "https://www.youtube.com/embed/L-xm_9zjNwI?si=oLJfMjkTts4gLKFU",
+        "AnswerChoices": ["Glittering Generalities", "Appeal to Fear", "Card Stacking"],
+        "Answer": "Appeal to Fear"
+    }
+]
