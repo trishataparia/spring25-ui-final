@@ -78,13 +78,13 @@
         </a>
         {% endif %}
 
-        {% if lesson.next != 'review_home' %}
+        {% if lesson.next != 'quiz_home' %}
         <a href="{{ url_for('view_item', item_id=lesson.next) }}" 
            class="btn btn-outline-primary ms-auto">
            Next
         </a>
         {% else %}
-        <a href="/review" 
+        <a href="/quiz" 
            class="btn btn-outline-primary">
             Next
         </a>
