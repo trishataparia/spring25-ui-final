@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<head>
+    
+    <title>Quiz Completed</title>
+    <style>
+    .return-home-btn {
+        display: inline-block;
+        color: black;
+        border: 2px solid black;
+        margin-top: 20px;
+        width: 250px;
+        height: 40px;
+        font-size: 20px;
+        background-color: #f8f9fa;
+        text-align: center;
+        text-decoration: none;
+        line-height: 40px; /* Vertically center the text */
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    h1{
+        margin-top: 200px;
+    }
+    #score{
+        margin-top: 200px;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="finish-container">
+        <div class = "row">
+            <div class = "col-md-12 d-flex justify-content-center">
+                <h1> Finished!</h1>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-md-12 d-flex justify-content-center">
+                
+                <p div id="score">You got {{ correct_answers_count }} out of 8 correct answers on the Quiz!</p>
+                      
+            </div>
+            <div class = "row">
+                <div class = "col-md-12 d-flex justify-content-center">
+                    <p>You’re on your way to becoming an expert in Identifying Propaganda Media Techniques!</p>
+                </div>
+                
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-md-12 d-flex justify-content-center">
+                <a href="/" class="return-home-btn">Done</a>
+            </div>
+        </div>
+        
+
+    </div>
+</body>
+</html>
+{% endblock %}
