@@ -1,8 +1,12 @@
+
 {% extends "layout.html" %}
 
 {% block content %}
 <head>
+    
+      
     <link rel="stylesheet" href="{{ url_for('static', filename='quiz_part_2.css') }}"> 
+    
 </head>
 <body>
 <div class="quiz-part-2-cointainer">
@@ -90,14 +94,12 @@
     
 
 </div>
-    {% endblock %}
-</body>
 <script>
     
     var questionId = (parseInt("{{ item['id'] }}") + 6).toString();  // Pass the id variable to JavaScript
     
 </script>
-<script src="{{ url_for('static', filename='quiz_part_2.js') }}"></script>
-<script>
-    
-  
+<script src="{{ url_for('static', filename='quiz_part_2.js') }}">
+</script>
+
+{% endblock %}
