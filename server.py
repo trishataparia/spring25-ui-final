@@ -7,7 +7,7 @@ lessons = {
         "lesson_id": "1",
         "title": "Glittering Generalities",
         "core_idea": "Uses vague, positive-sounding words without explaining anything specific.",
-        "example": "https://www.youtubeeducation.com/watch?t=42&v=g63K80akPts",
+        "example": "https://youtu.be/g63K80akPts?si=oNYRcO_4nTLYxkr_",
         "why_effective": "It bypasses critical thinking and makes viewers emotionally agree with something vague.",
         "how_spot": "Look for broad emotional words (freedom, loyalty), uplifting music, and scenes of families, flags, etc.",
         "prev": "lessons_home",
@@ -51,9 +51,28 @@ lessons = {
         "why_effective": "It triggers strong emotions, making people more likely to act quickly to avoid danger.",
         "how_spot": "Look for extreme language, dark visuals, or talk of danger/loss.",
         "prev": "4",
-        "next": "quiz_home" 
+        "next": "review_home" 
     },
 }
+
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/view/<int:item_id>')
+def view_item(item_id):
+    lesson = lessons.get(str(item_id))  # Convert item_id to string to match keys
+
+    if lesson is None:
+        abort(404)  # Return a proper 404 error page
+
+    return render_template('view_technique.html', lesson=lesson)
+
+# @app.route('/review') NEEDS IMPLEMENTATION
+
+# @app.route('/quiz') NEEDS IMPLEMENTATION
+
+
 
 
 if __name__ == "__main__":
