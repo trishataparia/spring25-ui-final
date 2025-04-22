@@ -21,10 +21,10 @@ $(document).ready(function() {
                                 allowfullscreen></iframe>
                     </div>
                 `);
-            } else {
+            }  else {
                 $('#display-content').html(`
                     <p><strong>${contentType}:</strong> 
-                        <img href="${content}" alt="">
+                        <a href="${content}" target="_blank">View Example</a>
                     </p>
                 `);
             }
