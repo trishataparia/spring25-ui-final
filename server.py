@@ -51,7 +51,7 @@ lessons = {
         "why_effective": "It triggers strong emotions, making people more likely to act quickly to avoid danger.",
         "how_spot": "Look for extreme language, dark visuals, or talk of danger/loss.",
         "prev": "4",
-        "next": "review_home" 
+        "next": "quiz_home" 
     },
 }
 
