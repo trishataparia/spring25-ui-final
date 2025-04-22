@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="icon" href="data:,">
+
+<!-- jquery -->
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>  
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="{{url_for('static', filename='final.css')}}">
+
+
+
+    <title>Identifying Propaganda Techniques in Media</title>
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="/">Identifying Propaganda Techniques in Media</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarContent">
+            <div class="navbar-nav me-auto">
+              <a class="nav-link {{ 'active' if request.path == '/' else '' }}" href="/">Home</a>
+              <a class="nav-link {{ 'active' if request.path == '/view/1' else '' }}" href="/view/1">Generalities</a>
+              <a class="nav-link {{ 'active' if request.path == '/view/2' else '' }}" href="/view/2">Bandwagon</a>
+              <a class="nav-link {{ 'active' if request.path == '/view/3' else '' }}" href="/view/3">Name-Calling</a>
+              <a class="nav-link {{ 'active' if request.path == '/view/4' else '' }}" href="/view/4">Card Stacking</a>
+              <a class="nav-link {{ 'active' if request.path == '/view/5' else '' }}" href="/view/5">Appeal to Fear</a>
+              <a class="nav-link {{ 'active' if request.path == '/review' else '' }}" href="/review">Review</a>
+              <a class="nav-link {{ 'active' if request.path == '/quiz' else '' }}" href="/quiz">Quiz</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <div class="container">   
+        {% block content %}
+        {% endblock %}
+    </div>
+
+  </body>
+</html>
+
+
+
+
+
