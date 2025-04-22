@@ -59,7 +59,7 @@ lessons = {
 def home():
     return render_template('home.html')
 
-@app.route('/view/<int:item_id>')
+@app.route('/learn/<int:item_id>')
 def view_item(item_id):
     lesson = lessons.get(str(item_id))  # Convert item_id to string to match keys
 
@@ -68,9 +68,9 @@ def view_item(item_id):
 
     return render_template('view_technique.html', lesson=lesson)
 
-# @app.route('/review') NEEDS IMPLEMENTATION
+# @app.route('/review_home') NEEDS IMPLEMENTATION
 
-# @app.route('/quiz') NEEDS IMPLEMENTATION
+# @app.route('/quiz_home') NEEDS IMPLEMENTATION
 
 
 
