@@ -24,7 +24,7 @@ $(document).ready(function() {
             } else {
                 $('#display-content').html(`
                     <p><strong>${contentType}:</strong> 
-                        <a href="${content}" target="_blank">View Example</a>
+                        <img href="${content}" alt="">
                     </p>
                 `);
             }
