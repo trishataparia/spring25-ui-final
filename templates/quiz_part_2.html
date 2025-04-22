@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='quiz_part_2.css') }}"> 
+</head>
+<body>
+<div class="quiz-part-2-cointainer">
+    <div class = "row">
+        <div class = "col-md-12 d-flex justify-content-center">
+            <div id = "instructions-1"> Now test your knowledge!
+            
+            </div>
+        </div>
+    </div>
+    <div class = "row">
+        <div class = "col-md-12 d-flex justify-content-center">
+            <div id = "instructions-2"> Drag the box with the correct answer into the box labeled “Your Answer”
+            </div>
+        </div>
+    </div>
+    
+    <div class = "row">
+        <div class = "col-md-12 d-flex justify-content-center">
+            <div id = "identify-example">Identify the example</div>
+        </div>
+    </div>    
+    <div class = "row">
+        <div class = "col-md-12 d-flex justify-content-center">
+            <div id = "question">Which technique is being used in this clip?</div>
+        </div>
+    </div>
+    <!-- video -->
+
+    <div class = "row">
+        <div class = "col-md-12 d-flex justify-content-center">
+            <div class="video-box">
+                <iframe 
+                src="{{ item['Video'] }}" 
+                title="YouTube video"
+                frameborder="0"
+                allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+    <div class = "row">
+        
+            {% if item['AnswerChoices'] %}
+            {% for choice in item['AnswerChoices'] %}
+            <div class = "col-md-4 d-flex justify-content-center">
+                <div class = "answer-choice-block">{{ choice }}</div>
+            </div>
+            {% endfor %}
+            {% else %}
+                <p>No popular dishes available.</p>  <!-- Handle case with no popular dishes -->
+            {% endif %}
+        
+    </div>
+    <div class = "row">
+        <div class = "col-md-4"></div>
+        <div class = "col-md-4 d-flex justify-content-center">
+            <div id = "answer-bucket">Your Answer</div>
+        </div>
+        <div class = "col-md-4"></div>    
+    </div>
+
+    <div class = "row">
+        <div class = "col-md-4"></div>
+        <div class = "col-md-4 d-flex justify-content-center">
+            
+            <a div id="next-button" style="display: none;" href="{% if item['next'] == 'finish' %}/finish {% else %}/quiz_part_2/{{ item['next'] }}{% endif %}">Next</a>
+        
+            
+        </div>
+        <div class = "col-md-4"></div>    
+    </div>
+    
+    <div class = "row">
+        <div class = "col-md-4"></div>
+        <div class = "col-md-4 d-flex justify-content-center">
+            <div id = "answer-message-box" class="answer-message-box" style="display: none;">{{item['AnswerMessage']}}</div>
+        </div>
+        <div class = "col-md-4"></div>    
+    </div>
+    <!-- Hidden elements to hold answer data -->
+    <div id="correct-answer" data-answer="{{ item['Answer'] }}" style="display: none;"></div>
+
+
+    
+
+</div>
+</body>
+<script>
+    
+    var questionId = (parseInt("{{ item['id'] }}") + 6).toString();  // Pass the id variable to JavaScript
+    
+</script>
+<script src="{{ url_for('static', filename='quiz_part_2.js') }}"></script>
+<script>
+    
+  
