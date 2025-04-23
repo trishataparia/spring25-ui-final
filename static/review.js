@@ -2,13 +2,16 @@ let reviewData = [];
 let currentIndex = 0;
 
 function updateCard() {
-  if (reviewData.length > 0) {
-    const current = reviewData[currentIndex];
-    $("#technique-title").text(current.title);
-    $("#technique-description").text(current.core_idea);
-    $("#technique-icon").attr("src", current.icon_url);
-  }
-}
+    if (reviewData.length > 0) {
+      const current = reviewData[currentIndex];
+      $("#technique-title").text(current.title);
+      $("#technique-description").text(current.core_idea);
+      $("#technique-icon").attr("src", current.icon_url);
+  
+      // Log user view time for this flashcard
+      $.post("/log_flashcard_entry", { title: current.title });
+    }
+  }  
 
 $(document).ready(function() {
   $.ajax({

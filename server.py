@@ -158,6 +158,21 @@ def review():
 def quiz_home():
     return render_template('quiz_home.html')
 
+@app.route('/log_flashcard_entry', methods=['POST'])
+def log_flashcard_entry():
+    if 'user' not in session:
+        return "Session not initialized", 403
+
+    title = request.form.get("title")
+    if title:
+        key = "Review_" + title.replace(" ", "_")
+
+        session['user']["2"][key] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        session.modified = True
+        return "Logged", 200
+    else:
+        return "No title received", 400
+
 @app.route('/quiz/<int:page_num>')
 def quiz_page(page_num):
     # Determine which ID range corresponds to the current page
