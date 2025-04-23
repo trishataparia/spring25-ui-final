@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename='drag_drop_question.js') }}"></script>
+
+<script>
+    let page_num = {{page_num|tojson}}
+    let selected_questions = {{selected_questions|tojson}}
+    console.log('on page num: ', page_num)
+    console.log('on selected questions: ', selected_questions)
+</script>
+
+<body>
+
+  <h4 class="display-6 mb-5 h4-format">
+    <br>
+    Now test your knowledge!
+    <br>
+    Drag the answers in the word bank to the corresponding questions!
+  </h4>
+
+  <div class="display-6 mb-5 h4-format feedback"></div>
+
+  <div class="container">
+    <div class="word-bank-box">
+      <div id="answers-section" class="word-bank">
+        {% for q in selected_questions %}
+          <div class="answer-tile" data-answer="{{ q.answer }}">{{ q.answer }}</div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="quiz-grid">
+      {% for q in selected_questions %}
+          <div class="quiz-item">
+            <div class="row quiz-row">
+              <div class="col-12 col-md-6 question-cell">
+                {{ q.question }}
+              </div>
+              <div class="col-12 col-md-6 answer-zone" data-answer="{{ q.answer }}"></div>
+            </div>
+          </div>
+      {% endfor %}
+    </div>
+
+    <br>
+
+    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+      <button class="btn btn-primary btn-lg px-4 gap-3 glow-on-hover" id='drop-submit'>
+        <i class="bi bi-journal-bookmark-fill me-2"></i>Submit Answer!
+      </button>
+    </div>
+
+  </div>
+
+</body>
+
+{% endblock %}
