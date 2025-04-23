@@ -11,6 +11,11 @@ $(function() {
             let $zone = $(this);
             console.log("Dropper Tile Content: ", $tile.text());
             $zone.append($tile);
+            $tile.css({
+                top: "0px",
+                left: "0px",
+                position: "relative"
+            });
         }
     });
 
