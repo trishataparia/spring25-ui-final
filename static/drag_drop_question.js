@@ -124,11 +124,23 @@ $(function() {
             }
         }
         else {
-            $(".feedback").text("Some answers are incorrect. Please try again.").removeClass("correct-feedback").addClass("incorrect-feedback");
-            $("#drop-submit")
-                .text("Try Again")
-                .removeClass("correct")
-                .addClass("incorrect");
+            $(".feedback").text("Some answers are incorrect.").removeClass("correct-feedback").addClass("incorrect-feedback");
+            if (page_num == 1){
+                let next = page_num + 1;
+                $("#drop-submit")
+                    .text("Next")
+                    .off("click")
+                    .on("click", function () {
+                        window.location.href = `/quiz/${next}`;
+            });
+            } else if (page_num == 2){
+                $("#drop-submit")
+                    .text("Next Page")
+                    .off("click")
+                    .on("click", function () {
+                        window.location.href = `/quiz_part_2/1`;
+                });
+            }
         }
 
     });
