@@ -13,4 +13,4 @@ And for running the server, make use firebase-admin and dotenv are installed:
 - pip install firebase-admin
 - pip install dotenv
 
-The server should be able to run after that!
+The server should be able to run with "python server.py" now!
