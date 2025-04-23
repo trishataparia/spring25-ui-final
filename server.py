@@ -1,6 +1,9 @@
-from flask import Flask, abort, jsonify, render_template, request
+from flask import Flask, abort, jsonify, render_template, request, session
+from datetime import datetime
+import copy
 
 app = Flask(__name__)
+app.secret_key = 'keyToBeMadeLater'
 
 lessons = {
     "1":{
@@ -87,21 +90,44 @@ user = {
         "Question6": "null",
         "Question7": "null",
         "Question8": "null"
-    }
+    },
+    "2":{
+        "Home": "null",
+        "Lesson1": "null",
+        "Lesson2": "null",
+        "Lesson3": "null",
+        "Lesson4": "null",
+        "Lesson5": "null"
+    },
 }
 
 @app.route('/')
 def home():
+    if 'user' not in session:
+        session['user'] = user.copy()
+
+    session['user']["2"]["Home"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    session.modified = True
+
     return render_template('home.html')
 
 @app.route('/learn/<int:item_id>')
 def view_item(item_id):
-    lesson = lessons.get(str(item_id))  # Convert item_id to string to match keys
+    if 'user' not in session:
+        return redirect(url_for('home'))
 
+    lesson = lessons.get(str(item_id))  # Convert item_id to string to match keys
     if lesson is None:
         abort(404)  # Return a proper 404 error page
 
+    session['user']["2"][f"Lesson{item_id}"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    session.modified = True
+
     return render_template('view_technique.html', lesson=lesson)
+
+@app.route('/debug')
+def debug():
+    return str(session.get('user', 'No user data'))
 
 # @app.route('/review_home') NEEDS IMPLEMENTATION
 
