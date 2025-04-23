@@ -7,12 +7,22 @@
 </script>
 
 <div class="container">
-    <h1 id="lessonTitle">{{ lesson.title }}</h1>
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-center" >
+            <h1 id="lessonTitle">{{ lesson.title }}</h1>
+        </div>
+    </div>
     
     <!-- Single Display Area -->
-    <div id="dynamic-display" class="info-display mb-4">
-        <h3 id="display-title">Click an icon below</h3>
-        <p><strong id="content-type"></strong> <span id="display-content"></span></p>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+        <div id="dynamic-display" class="info-display mb-4">
+            <h3 id="display-title">Click an icon below</h3>
+            <p><strong id="content-type"></strong> <span id="display-content"></span></p>
+        </div>
+        </div>
+        <div class="col-md-3"></div>
     </div>
     
     <div class="row">
