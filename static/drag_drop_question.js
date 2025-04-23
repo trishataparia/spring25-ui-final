@@ -44,6 +44,14 @@ $(function() {
         
         let results = {};
         let allCorrect = true;
+        let overall_index = 0;
+
+        if(page_num == 1){
+            overall_index = 1;
+        }
+        else if(page_num == 2){
+            overall_index = 4;
+        }
 
         $(".answer-zone").each(function (index) {
             let $zone = $(this);
@@ -62,7 +70,7 @@ $(function() {
                 userAns = $tile.text().trim();
                 isCorrect = userAns === correctAns;
 
-                console.log(`Question ${index + 1}`);
+                console.log(`Question ${overall_index + index}`);
                 console.log("Correct Answer:", correctAns);
                 console.log("User Answer:", userAns);
                 console.log("Match?", isCorrect);
@@ -76,7 +84,7 @@ $(function() {
                 }
             }
 
-            results["Question" + index] = isCorrect;
+            results["Question" + (overall_index + index)] = isCorrect;
         });
 
         let data_to_update = { "user_update": results };
