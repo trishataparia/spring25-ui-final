@@ -4,6 +4,18 @@
     border-bottom: 2px solid #0d6efd;
   }
 
+.icon-container{
+  cursor: pointer;
+  height: 100%;
+}  
+
+#dynamic-display{
+  max-width: 650px;
+  height: 405px;
+  border: 5px dotted;
+  border-color: black; 
+}
+
 .bold{
     font-weight: bold;
 }
