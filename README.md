@@ -7,7 +7,7 @@ To generate a private key for the Firebase:
 - Rename it to: UIserviceAccountKey.json
 - Place it in the root directory of this project
 
-Then rename the .env.example file in this repo to .env
+Then rename the .env.example file in this repo to .env.
 
 And for running the server, make use firebase-admin and dotenv are installed:
 - pip install firebase-admin
