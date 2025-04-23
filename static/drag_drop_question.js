@@ -24,6 +24,24 @@ $(function() {
 
         console.log("submit button clicked!");
 
+        let allFilled = true;
+
+        $(".answer-zone").each(function () {
+            if ($(this).find(".answer-tile").length === 0) {
+                allFilled = false;
+                return false;
+            }
+        });
+
+        if (!allFilled) {
+            $(".feedback")
+                .text("Please answer all questions before submitting.")
+                .removeClass("correct-feedback")
+                .addClass("incorrect-feedback");
+
+            return;
+        }
+        
         let results = {};
         let allCorrect = true;
 
