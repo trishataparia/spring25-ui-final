@@ -1,6 +1,8 @@
 from flask import Flask, abort, jsonify, render_template, request, session
 from datetime import datetime
 import copy
+import firebase_admin
+from firebase_admin import credentials, db
 
 app = Flask(__name__)
 app.secret_key = 'keyToBeMadeLater'
@@ -106,6 +108,16 @@ user = {
     },
 }
 
+# firebase admin SDK information
+cred = credentials.Certificate("UIserviceAccountKey.json")
+firebase_admin.initialize_app(cred, {
+   'databaseURL': "https://spring25-ui-quiz-questions-default-rtdb.firebaseio.com"
+})
+
+ref = db.reference('/questions')
+data = ref.get()
+print(data)
+
 @app.route('/')
 def home():
     if 'user' not in session:
@@ -146,6 +158,28 @@ def review():
 def quiz_home():
     return render_template('quiz_home.html')
 
+@app.route('/quiz/<int:page_num>')
+def quiz_page(page_num):
+    # Determine which ID range corresponds to the current page
+    if page_num == 1 or page_num == 2:
+        questions_num = 3
+        start_id = (page_num - 1) * questions_num + 1
+        end_id = start_id + questions_num - 1
+
+        # Use list comprehension to get only questions in this range
+        selected_questions = [q for q in data.values() if start_id <= q['id'] <= end_id]
+        
+        return render_template('drag_drop_question.html', page_num=page_num, selected_questions=selected_questions)
+
+@app.route('/drag_drop_submit', methods=['POST'])
+def drag_drop_submit():
+    user_update = request.get_json().get('user_update')
+    print("Received user update:", user_update)
+
+    for id, answer in user_update.items():
+        user["1"][id] = answer
+    
+    return jsonify({"status": "success", "updated_user": user}), 200
 
 @app.route('/quiz_part_2/<int:question_id>')
 def quiz_part_2(question_id):
