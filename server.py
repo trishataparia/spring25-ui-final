@@ -114,7 +114,7 @@ def home():
 @app.route('/learn/<int:item_id>')
 def view_item(item_id):
     if 'user' not in session:
-        return redirect(url_for('home'))
+        return redirect('/')
 
     lesson = lessons.get(str(item_id))  # Convert item_id to string to match keys
     if lesson is None:
