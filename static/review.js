@@ -35,10 +35,13 @@ $(document).ready(function() {
     }
   });
 
-  $("#next-btn").click(function() {
+  $("#next-btn").click(function () {
     if (currentIndex < reviewData.length - 1) {
       currentIndex++;
       updateCard();
+    } else {
+      // Redirect to quiz_home on last card
+      window.location.href = "/quiz_home";
     }
   });
 });
