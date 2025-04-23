@@ -14,7 +14,8 @@ lessons = {
         "why_effective": "It bypasses critical thinking and makes viewers emotionally agree with something vague.",
         "how_spot": "Look for broad emotional words (freedom, loyalty), uplifting music, and scenes of families, flags, etc.",
         "prev": "lessons_home",
-        "next": "2" 
+        "next": "2",
+        "icon_url": "https://emojigraph.org/media/joypixels/brain_1f9e0.png"
     },
     "2":{
         "lesson_id": "2",
@@ -24,7 +25,8 @@ lessons = {
         "why_effective": "People don’t want to feel excluded so this technique plays on social pressure and the desire to belong.",
         "how_spot": "Look for large crowds or happy groups and phrases like “join the movement” or “don’t be left out.”",
         "prev": "1",
-        "next": "3" 
+        "next": "3",
+        "icon_url": "https://emojigraph.org/media/facebook/people-holding-hands_1f9d1-200d-1f91d-200d-1f9d1.png"
     },
     "3":{
         "lesson_id": "3",
@@ -34,7 +36,8 @@ lessons = {
         "why_effective": "It triggers disgust, fear, or anger, making you judge someone emotionally instead of thinking critically.",
         "how_spot": "Look for loaded words like “traitor,” “corrupt,” “freeloader,” used instead of reasoned arguments.",
         "prev": "2",
-        "next": "4" 
+        "next": "4",
+        "icon_url": "https://emojigraph.org/media/twitter/speaking-head_1f5e3-fe0f.png" 
     },
     "4":{
         "lesson_id": "4",
@@ -44,7 +47,8 @@ lessons = {
         "why_effective": "It creates a biased view that seems convincing because the audience doesn’t see the full picture.",
         "how_spot": "Look for overly selective facts, missing context, or stats that seem too good to be true.",
         "prev": "3",
-        "next": "5" 
+        "next": "5" ,
+        "icon_url": "https://emojigraph.org/media/twitter/clipboard_1f4cb.png"
     },
     "5":{
         "lesson_id": "5",
@@ -54,7 +58,8 @@ lessons = {
         "why_effective": "It triggers strong emotions, making people more likely to act quickly to avoid danger.",
         "how_spot": "Look for extreme language, dark visuals, or talk of danger/loss.",
         "prev": "4",
-        "next": "quiz_home" 
+        "next": "quiz_home" ,
+        "icon_url": "https://emojigraph.org/media/facebook/warning_26a0-fe0f.png"
     },
 }
 
@@ -129,9 +134,18 @@ def view_item(item_id):
 def debug():
     return str(session.get('user', 'No user data'))
 
-# @app.route('/review_home') NEEDS IMPLEMENTATION
+@app.route('/get_lessons')
+def get_lessons():
+    return jsonify(lessons)
 
-# @app.route('/quiz_home') NEEDS IMPLEMENTATION
+@app.route('/review')
+def review():
+    return render_template('review.html')
+
+@app.route('/quiz_home')
+def quiz_home():
+    return render_template('quiz_home.html')
+
 
 @app.route('/quiz_part_2/<int:question_id>')
 def quiz_part_2(question_id):
