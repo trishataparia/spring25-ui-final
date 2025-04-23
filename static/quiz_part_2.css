@@ -102,6 +102,7 @@
     margin-top: 100px;
     font-size: clamp(16px, 2.5vw, 25px);
     max-width: 750px;
+    min-height: 200px;  
     width: 100%;  
   }
   
