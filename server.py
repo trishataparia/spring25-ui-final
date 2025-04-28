@@ -1,8 +1,24 @@
+import os
 from flask import Flask, abort, jsonify, render_template, request, session
 from datetime import datetime
 import copy
 import firebase_admin
 from firebase_admin import credentials, db
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# firebase admin SDK information
+cred_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+database_url = os.getenv("DATABASE_URL")
+cred = credentials.Certificate(cred_path)
+firebase_admin.initialize_app(cred, {
+   'databaseURL': database_url
+})
+
+ref = db.reference('/questions')
+data = ref.get()
+print(data)
 
 app = Flask(__name__)
 app.secret_key = 'keyToBeMadeLater'
@@ -107,16 +123,6 @@ user = {
         "Lesson5": "null"
     },
 }
-
-# firebase admin SDK information
-cred = credentials.Certificate("UIserviceAccountKey.json")
-firebase_admin.initialize_app(cred, {
-   'databaseURL': "https://spring25-ui-quiz-questions-default-rtdb.firebaseio.com"
-})
-
-ref = db.reference('/questions')
-data = ref.get()
-print(data)
 
 @app.route('/')
 def home():
