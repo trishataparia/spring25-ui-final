@@ -50,6 +50,7 @@
   background-color: #fff;
   padding: 10px;
   border: 1px solid #aaa;
+  border-radius: 8px;
 }
 
 .question-cell {
@@ -65,15 +66,27 @@
   width: 100%;
   min-height: 60px;
   border: 2px dashed #ccc;
+  border-radius: 8px;
   padding: 10px;
   background-color: #f2f2f2;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .answer-zone.ui-droppable-hover {
-  background-color: yellow;
+  background-color: #a8dadc;
+}
+
+.answer-zone.hovering {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+.answer-tile.scaled{
+  transform: scale(1.1);
+  z-index: 11;
 }
 
 .word-bank-box {
