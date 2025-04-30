@@ -1,46 +1,100 @@
-.quiz-part-2-container {
-    width: auto;
-}
 #instructions-1{
-    font-size: medium;
+    
     margin-top: 30px;
-    font-size: 25px;
+    font-size: 20px; /* was 25px*/
+    color: rgb(65, 65, 65)
 }
 #instructions-2{
-    font-size: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    display: inline;
+    margin-right: 7px;
+    white-space: nowrap;
+    color: rgb(65, 65, 65)
+    
 }
+#instructions-3{
+  font-size: 20px;
+  display: inline;
+  white-space: nowrap;
+  color: rgb(65, 65, 65)
+}
+
+
+
+@media (max-width: 670px) { 
+  #instructions-1, #instructions-2, #instructions-3 {
+      font-size: 3vw; 
+  }
+}
+
+@media (max-width: 570px) { 
+  #question {
+      font-size: 20px !important;
+  }
+}
+
+@media (max-width: 570px) { 
+  #identify-example {
+      font-size: 35px !important;
+  }
+}
+
 #identify-example{
-    font-size: 50px;
-    margin-top: 100px;
+    font-size: 40px;
+    margin-top: 60px;
+    white-space: nowrap;
+    color: rgb(65, 65, 65)
 }
 #question{
-    font-size: 40px;
+    font-size: 25px;
+    margin-top: 20px;
+    white-space: nowrap;
+    color: rgb(65, 65, 65)
+    
 }
+
+@media (max-width: 800px) { 
+   .answer-choice-block {
+      font-size: 5vw; /* Smaller on medium screens */
+  }
+}
+
+@media (max-width: 500px) { 
+   .answer-choice-block {
+      font-size: 6vw; /* Smaller on smaller screens */
+  }
+}
+
 .answer-choice-block{
-    width: 300px; /* or a fixed width like 300px */
-    height: 80px;
+    width: 130px; /* or a fixed width like 300px */
+    height: 60px;
     border: 2px solid black;
     border-radius: 5px;
-    padding-top: 25px;
-    margin-top: 50px;
+    padding-top: 15px;
+    margin-top: 10px;
     background-color: #f8f9fa; /* light grey, optional */
     text-align: center;
-    vertical-align: top;
-    line-height: 20px;
+    vertical-align: bottom;
+    line-height: 18px;
     cursor: grab; /* optional for draggable feel */
-    font-size: 30px;
+    font-size: 15px;
+    color: rgb(65, 65, 65)
+    
 }
 #answer-bucket{
-    width: 500px; /* or a fixed width like 300px */
-    height: 80px;
+    width: 130px; /* or a fixed width like 300px */
+    height: 60px;
     border: 2px solid black;
     border-radius: 5px;
-    padding: 30px;
-    margin-top: 200px;
+    padding: 15px;
+    margin-top: 70px;
     background-color: #f8f9fa; /* light grey, optional */
     text-align: center;
-    line-height: 20px;
-    font-size: 30px;
+    line-height: 18px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: rgb(65, 65, 65)
     
 }
 .col{
@@ -48,12 +102,13 @@
   justify-content: center;
 }
 .video-box {
-    width: 600px;
-    height: 340px;
+    width: 520px;
+    height: 300px;
     overflow: hidden;
     border: 2px solid #000;
     border-radius: 10px;
     margin-top: 20px;
+    margin-bottom: 30px;
   }
   
 .video-box iframe {
@@ -65,45 +120,53 @@
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    color: rgb(65, 65, 65)
   }
   /* Custom styles for the "Next" button */
 #next-button {
     display: inline-block;
-    color: black;
+    
     border: 2px solid black;
-    margin-top: 20px;
-    width: 250px;
-    height: 40px;
+    
+    width: 220px;
+    height: 60px;
     font-size: 20px;
-    background-color: #f8f9fa; /* light grey, optional */
+    background-color: #a8dadc; /* light grey, optional */
     text-align: center;
+    padding: 12px;
     text-decoration: none; /* Remove underline */
     border-radius: 5px; /* Rounded corners */
-    
+    margin-top: 60px;
     cursor: pointer; /* Pointer on hover */
     transition: background-color 0.3s ease; /* Smooth background color transition */
+    visibility: hidden;
   }
-  a {
+  a#next-button {
     text-decoration: none;  /* Removes underline */
-    color: inherit;         /* Inherits the text color from its parent or container */
-    font-weight: bold;      /* Optionally makes the text bold */
+    color: white;         /* Inherits the text color from its parent or container */
+    font-weight: bold;
+         /* Optionally makes the text bold */
 }
   
   /* Hover effect for the button */
   #next-button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #6cd4d7; /* Darker green on hover */
   }
   .answer-message-box {
     padding: 15px;
     border: 10px solid;
     border-radius: 20px;
-    height: 200px;
+    
     text-align: center;
     margin-top: 100px;
-    font-size: clamp(16px, 2.5vw, 25px);
+    font-size: clamp(16px, 2.5vw, 18px);
     max-width: 750px;
-    min-height: 200px;  
-    width: 100%;  
+    min-height: 150px;
+    width: 100%;
+    color: rgb(65, 65, 65);
+      
+    visibility: hidden;
+    margin-bottom: 10px;
   }
   
   #answer-message-box.correct {
@@ -115,3 +178,12 @@
     border-color: red;
     background-color: #f8f9fa; /* light grey, optional */
   }
+
+  #next-button.show{
+    visibility: visible;
+  }
+  .show {
+    visibility: visible; /* When you want to show them */
+  }
+
+  
