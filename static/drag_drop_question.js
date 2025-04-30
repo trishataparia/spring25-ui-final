@@ -1,20 +1,35 @@
 $(function() {
     $(".answer-tile").draggable({
         revert: "invalid",
-        cursor: "move"
+        helper: "original",
+        cursor: "move",
+        start: function(event, ui) {
+            $(this).css("z-index", 1000);
+        }
     });
 
     $(".answer-zone").droppable({
         accept: ".answer-tile",
+        over: function(event, ui) {
+            $(this).addClass('hovering');
+            $(ui.helper).addClass('scaled');
+        },
+        out: function(event, ui) {
+            $(this).removeClass('hovering');
+            $(ui.helper).removeClass('scaled');
+        },
         drop: function(event, ui) {
             let $tile = ui.draggable;
             let $zone = $(this);
+            $zone.removeClass('hovering');
+            $tile.removeClass('scaled');
             console.log("Dropper Tile Content: ", $tile.text());
             $zone.append($tile);
             $tile.css({
                 top: "0px",
                 left: "0px",
-                position: "relative"
+                position: "relative",
+                zIndex: 0
             });
         }
     });
