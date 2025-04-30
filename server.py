@@ -5,6 +5,7 @@ import copy
 import firebase_admin
 from firebase_admin import credentials, db
 from dotenv import load_dotenv
+import random
 
 load_dotenv()
 
@@ -20,6 +21,27 @@ ref = db.reference('/questions')
 data = ref.get()
 print(data)
 
+answer_groups = {}
+for q in data.values():
+    ans = q['answer']
+    answer_groups.setdefault(ans, []).append(q)
+
+all_ans_types = list(answer_groups.keys())
+random.shuffle(all_ans_types)
+
+pages = []
+used_combos = []
+
+for _ in range(2):
+    while True:
+        selected = random.sample(all_ans_types, 3)
+        selected_set = set(selected)
+        if selected_set not in used_combos:
+            used_combos.append(selected_set)
+            break
+    questions = [random.choice(answer_groups[atype]) for atype in selected]
+    pages.append(questions)
+   
 app = Flask(__name__)
 app.secret_key = 'keyToBeMadeLater'
 
@@ -181,15 +203,8 @@ def log_flashcard_entry():
 
 @app.route('/quiz/<int:page_num>')
 def quiz_page(page_num):
-    # Determine which ID range corresponds to the current page
     if page_num == 1 or page_num == 2:
-        questions_num = 3
-        start_id = (page_num - 1) * questions_num + 1
-        end_id = start_id + questions_num - 1
-
-        # Use list comprehension to get only questions in this range
-        selected_questions = [q for q in data.values() if start_id <= q['id'] <= end_id]
-        
+        selected_questions = pages[page_num-1]
         return render_template('drag_drop_question.html', page_num=page_num, selected_questions=selected_questions)
 
 @app.route('/drag_drop_submit', methods=['POST'])
