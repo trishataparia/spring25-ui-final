@@ -26,14 +26,16 @@
             $messageBox
             .removeClass("correct incorrect")
             .addClass(droppedText === correctAnswer ? "correct" : "incorrect")
-            .show();
+            
+            document.getElementById('next-button').classList.add('show');
+            document.getElementById('answer-message-box').classList.add('show');
       
           // Remove the dragged block
             ui.draggable.remove();
           
           // Disable the draggable functionality for remaining choices and change cursor
             $(".answer-choice-block").draggable("disable").css("cursor", "default");
-            $("#next-button").show();
+            
 
             const isCorrect = droppedText === correctAnswer;
             let answer_check = {
