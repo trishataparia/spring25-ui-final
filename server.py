@@ -10,8 +10,8 @@ import random
 load_dotenv()
 
 # firebase admin SDK information
-cred_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
-database_url = os.getenv("DATABASE_URL")
+cred_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "UIserviceAccountKey.json")
+database_url = os.getenv("DATABASE_URL", "https://spring25-ui-quiz-questions-default-rtdb.firebaseio.com")
 cred = credentials.Certificate(cred_path)
 firebase_admin.initialize_app(cred, {
    'databaseURL': database_url
