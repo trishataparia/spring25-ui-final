@@ -9,7 +9,7 @@
         display: inline-block;
         color: white;
         border: 2px solid black;
-        margin-top: 20px;
+        margin-top: 130px;
         width: 200px;
         height: 40px;
         font-size: 20px;
@@ -22,17 +22,58 @@
     }
 
     .return-home-btn:hover {
-    background-color: #6cd4d7; /* Darker green on hover */
+    background-color: #6cd4d7;
+    color: white; /* Darker green on hover */
   }
     h1{
         margin-top: 100px;
+        font-weight: bolder;
+        font-size: 50px;
+        margin-bottom: 100px;
+    }
+    
+    #greeting{
+        
+        font-size: 18px;
+        padding-top: 10px;
+        
+    }
+    #greeting-2{
+        
+        font-size: 18px;
+        padding-top: 10px;
+        
+        
+    }
+    #backtrack-button{
+        height: 35px;
+        margin-left: 7px;
+        width: 115px;
+        margin-right: 7px;
+        margin-bottom: 20px;
+        font-size: 18px;
+           
     }
     #score{
-        margin-top: 100px;
+        font-size: 25px;
+        padding-top: 8px;
+        
     }
-    #greeting{
-        margin-bottom: 150px;
+    #score-2{
+        font-size: 40px;
+        font-weight: bolder;
+        margin-left: 5px;
+        margin-right: 5px;
+                
+        
     }
+    #score-3{
+        font-size: 25px;
+        padding-top: 8px;
+        margin-bottom: 50px;
+        
+    }
+    
     
     </style>
 </head>
@@ -44,18 +85,51 @@
             </div>
         </div>
         <div class = "row">
-            <div class = "col-md-12 d-flex justify-content-center">
+            <div class = "col-md-12 d-flex justify-content-center flex-wrap text-center">
                 
-                <p div id="score">You got {{ correct_answers_count }} out of 8 correct answers on the Quiz!</p>
+                
+                <p id="score">You got</p>
+                <p id="score-2">{{ correct_answers_count}}</p>
+                <p id="score">out of</p>
+                <p id="score-2">8</p>
+                <p id="score-3">correct answers on the Quiz!</p>
                       
             </div>
-            <div class = "row">
-                <div class = "col-md-12 d-flex justify-content-center">
-                    <p div id="greeting">You’re on your way to becoming an expert at Spot the Spin!</p>
-                </div>
+        </div>    
+            {% if correct_answers_count <= 2 %}
+        <div class = "row">
+            <div class="col-lg-2"></div>
+            <div class = "col-lg-8 d-flex justify-content-center align-items-center flex-wrap text-center">
                 
-            </div>
+                    <p id="greeting">Let's go back to </p>
+                    <a href="/learn/1" class="btn btn-outline-secondary btn-lg" id="backtrack-button">Lesson 1 </a>
+            
+                    <p id="greeting"> to get a better understanding of the topics.</p>
+            </div> 
+            <div class="col-lg-2"></div>
         </div>
+
+            {% elif correct_answers_count <= 5 %}
+        <div class = "row">
+                <div class = "col-lg-12 d-flex justify-content-center align-items-center">
+                    <p id="greeting-2">Perhaps you'd like more practice.</p>
+                </div>
+        </div>       
+        <div class = "row">
+                <div class = "col-md-12 d-flex justify-content-center">
+                    <p id="greeting"> Remember you can click</p>
+                    <a href="/review" class="btn btn-outline-secondary btn-lg" id="backtrack-button">Review</a>
+                    <p  id="greeting">before taking the quiz.</p>
+                </div>
+        </div>    
+            {% else %}
+        <div class = "row">
+                <div class = "col-lg-12 d-flex justify-content-center align-items-center">
+                    <p  id="greeting">You’re on your way to becoming an expert at Spot the Spin!</p>
+        </div>
+                    {% endif %}
+                    
+                
         <div class = "row">
             <div class = "col-md-12 d-flex justify-content-center">
                 <a href="/" class="return-home-btn">Done</a>
