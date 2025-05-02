@@ -44,7 +44,8 @@
     font-size: 40px;
     margin-top: 60px;
     white-space: nowrap;
-    color: rgb(65, 65, 65)
+    color: rgb(65, 65, 65);
+    font-weight: bolder;
 }
 #question{
     font-size: 25px;
