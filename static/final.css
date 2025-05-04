@@ -252,7 +252,7 @@ body {
 
 .word-bank-box {
   display: flex;
-  border: 2px solid #0d6efd;
+  border: 2px solid #1c4590;
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 30px;
@@ -284,4 +284,17 @@ body {
 .correct-feedback{
   font-weight: bold;
   color: #28a745;
+}
+
+.glow-on-hover {
+  background-color: #a8dadc;
+  border: #a8dadc;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.glow-on-hover:hover {
+  background-color: #1c4590;
+  border: #1c4590;
+  color: white;
 }
