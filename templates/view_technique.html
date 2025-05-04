@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='final.css')}}">
 <script type="text/javascript" src="{{ url_for('static', filename='view.js') }}"></script>
 <script>
     let lessons = {{ lesson |tojson }};
@@ -8,24 +9,22 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12 d-flex justify-content-center" >
+        <div class="col-md-12 d-flex justify-content-center mt-4 mb-2" >
             <h1 id="lessonTitle">{{ lesson.title }}</h1>
         </div>
     </div>
     
     <!-- Single Display Area -->
     <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-        <div id="dynamic-display" class="info-display mb-4">
-            <h3 id="display-title">Click an icon below</h3>
-            <p><strong id="content-type"></strong> <span id="display-content"></span></p>
+        <div class="col-md-12 d-flex justify-content-center">
+            <div id="dynamic-display" class="info-display mb-4 text-center">
+                <h3 id="display-title">Click an icon below</h3>
+                <p><strong id="content-type"></strong> <span id="display-content"></span></p>
+            </div>
         </div>
-        </div>
-        <div class="col-md-3"></div>
     </div>
     
-    <div class="row">
+    <div class="row icon-row">
         <!-- Brain Icon -->
         <div class="col-3 text-center">
             <div class="icon-container">
@@ -34,7 +33,7 @@
                      class="clickable-icon img-fluid"
                      data-content="{{ lesson.core_idea }}"
                      data-content-type="Core Idea"
-                     style= "width: 175px;">
+                     style= "width: 125px;">
                 <p class="mt-2">Core Idea</p>
             </div>
         </div>
@@ -47,7 +46,7 @@
                      class="clickable-icon img-fluid"
                      data-content="{{ lesson.example }}"
                      data-content-type="Example"
-                     style= "width: 175px;">
+                     style= "width: 125px;">
                 <p class="mt-2">Example</p>
             </div>
         </div>
@@ -60,7 +59,7 @@
                      class="clickable-icon img-fluid"
                      data-content="{{ lesson.why_effective }}"
                      data-content-type="Why It's Effective"
-                     style= "width: 175px;">
+                     style= "width: 125px;">
                 <p class="mt-2">Why It's Effective</p>
             </div>
         </div>
@@ -73,41 +72,36 @@
                      class="clickable-icon img-fluid"
                      data-content="{{ lesson.how_spot }}"
                      data-content-type="How to Spot It"
-                     style= "width: 175px;">
+                     style= "width: 125px;">
                 <p class="mt-2">How to Spot It</p>
             </div>
         </div>
     </div>
 
-    <div class="d-flex justify-content-between mt-4">
+    <div class="d-flex justify-content-between mt-1 mb-3">
         {% if lesson.prev != 'lessons_home' %}
         <a href="{{ url_for('view_item', item_id=lesson.prev) }}" 
-           class="btn btn-outline-primary">
+           class="btn btn-prev">
             Previous
         </a>
         {% else %}
         <a href="/" 
-           class="btn btn-outline-primary">
+           class="btn btn-prev">
             Previous
         </a>
         {% endif %}
 
         {% if lesson.next != 'quiz_home' %}
         <a href="{{ url_for('view_item', item_id=lesson.next) }}" 
-           class="btn btn-outline-primary ms-auto">
+           class="btn btn-next ms-auto">
            Next
         </a>
         {% else %}
         <a href="/quiz_home" 
-           class="btn btn-outline-primary">
+           class="btn btn-next">
             Next
         </a>
         {% endif %}
     </div>
 </div>
 {% endblock %}
-
-
-
-
-
