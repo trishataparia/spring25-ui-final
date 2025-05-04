@@ -29,12 +29,12 @@
           <a class="navbar-brand" href="/">
             <img src="https://media-hosting.imagekit.io/4a279de2f2424237/Screenshot 2025-04-27 at 19.36.06.png?Expires=1840405103&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=pRkcIA7gM7OcoBrfP5TJNCDNY8u5Jv45GeuFGowtVoJGuqOUUNRsq3p318N9varWes1g1BGIpyqI0hEgn3y4Vv25INKALB0l~7zQXeBlGSHjTWCZBK66UosU18zNQLWbfGREgYUYWn3pn2~SIOPo8b2m4FCqF1uzT7-0rSj3NqA3ucd0UgBwVSNCXc7ampH5I~WmMjqgf-CRt0bgC1hk~TbDsnnHFtpKaIr3O6pGX8G~6DKLASaZBmtSuLu1DIa-64PI30amfwhU7XruCWjDAmOCyHTpCSNhQCB5mOvYWlxHlrde7rgurlvRrZKHWhh9QHFgD1wy~GzV9WV9BpeSTg__" 
             alt="Spot the Spin Logo" width=80px></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+              <span class="navbar-toggler-icon"><div></div></span>
+            </button>
           
           <div class="collapse navbar-collapse" id="navbarContent">
-            <div class="navbar-nav me-auto">
+            <div class="navbar-nav mx-auto">
               <a class="nav-link {{ 'active' if request.path == '/' else '' }}" href="/">Home</a>
               <a class="nav-link {{ 'active' if request.path == '/learn/1' else '' }}" href="/learn/1">Generalities</a>
               <a class="nav-link {{ 'active' if request.path == '/learn/2' else '' }}" href="/learn/2">Bandwagon</a>
@@ -55,8 +55,5 @@
 
   </body>
 </html>
-
-
-
 
 
