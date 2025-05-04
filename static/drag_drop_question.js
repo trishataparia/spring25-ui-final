@@ -131,7 +131,7 @@ $(function() {
                     });
             } else if (page_num == 2){
                 $("#drop-submit")
-                    .text("Next Page")
+                    .text("Next")
                     .off("click")
                     .on("click", function () {
                         window.location.href = `/quiz_part_2/1`;
@@ -150,7 +150,7 @@ $(function() {
             });
             } else if (page_num == 2){
                 $("#drop-submit")
-                    .text("Next Page")
+                    .text("Next")
                     .off("click")
                     .on("click", function () {
                         window.location.href = `/quiz_part_2/1`;
