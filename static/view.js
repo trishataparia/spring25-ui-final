@@ -4,7 +4,7 @@ $(document).ready(function() {
         const contentType = $icon.data('content-type');
         const content = $icon.data('content');
         
-        $('#display-title').text($icon.data('title'));
+        $('#display-title').hide();
         
         if (contentType === "Core Idea" || contentType === "Why It's Effective" || contentType === "How to Spot It") {
             $('#display-content').html(`
@@ -14,23 +14,21 @@ $(document).ready(function() {
         else if (contentType === "Example") {
             if (isYouTubeUrl(content)) {
                 $('#display-content').html(`
-                    <div class="ratio ratio-16x9 mt-3">
+                    <div class="responsive-video-container mt-3">
                         <iframe src="${convertToEmbedUrl(content)}" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 allowfullscreen></iframe>
                     </div>
                 `);
-            }  else {
+            } else {
                 $('#display-content').html(`
                     <p><strong>${contentType}:</strong> 
                         <a href="${content}" target="_blank">View Example</a>
                     </p>
                 `);
             }
-        } 
-        
-
+        }
     });
 
     function isYouTubeUrl(url) {
@@ -43,7 +41,6 @@ $(document).ready(function() {
             const videoId = url.split('v=')[1].split('&')[0];
             return `https://www.youtube.com/embed/${videoId}`;
         }
-        // Handle youtu.be short links
         if (url.includes('youtu.be')) {
             const videoId = url.split('youtu.be/')[1].split('?')[0];
             return `https://www.youtube.com/embed/${videoId}`;
