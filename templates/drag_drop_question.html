@@ -13,12 +13,20 @@
 
 <body>
 
-  <h4 class="display-6 mb-5 h4-format">
-    <br>
-    Now test your knowledge!
-    <br>
-    Drag the answers in the word bank to the corresponding questions!
-  </h4>
+  <div class="row">
+    <div class="col-md-12 d-flex justify-content-center mt-4" >
+        <h1 id="quiz-title">Now test your knowledge!</h1>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12 d-flex justify-content-center" >
+        <h1 id="quiz-instructions">Drag the answers in the word bank to the corresponding questions!</h1>
+    </div>
+  </div>
+  
+
+  
 
   <div class="display-6 mb-5 h4-format feedback"></div>
 
@@ -45,11 +53,14 @@
     </div>
 
     <br>
-
-    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-      <button class="btn btn-primary btn-lg px-4 gap-3 glow-on-hover" id='drop-submit'>
-        <i class="bi bi-journal-bookmark-fill me-2"></i>Submit Answers!
-      </button>
+    <div class="row">
+      <div class="col-md-12 d-flex justify-content-center" >
+        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+          <button class="btn btn-next" id='drop-submit'>
+            <i class="bi bi-journal-bookmark-fill me-2"></i>Submit Answers!
+          </button>
+       </div>
+      </div>
     </div>
 
   </div>
