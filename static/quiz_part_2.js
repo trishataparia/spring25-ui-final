@@ -6,6 +6,7 @@
     });
 
     $("#answer-bucket").droppable({
+        hoverClass: "highlight-droppable",
         accept: ".answer-choice-block",
         drop: function(event, ui) {
             const droppedText = ui.draggable.text().trim();
