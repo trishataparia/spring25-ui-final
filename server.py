@@ -19,7 +19,6 @@ firebase_admin.initialize_app(cred, {
 
 ref = db.reference('/questions')
 data = ref.get()
-print(data)
 
 answer_groups = {}
 for q in data.values():
