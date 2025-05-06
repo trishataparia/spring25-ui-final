@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container text-center mt-5">
-  <h2 class="mb-3">Test your knowledge!</h2>
+  <h2 class="mb-3" id = "review-title">Test your knowledge!</h2>
   <h4 class="mb-4 text-muted">or Review</h4>
 
   <p class="fs-5 mb-5">
@@ -10,8 +10,8 @@
   </p>
 
   <div class="d-flex justify-content-center gap-4">
-    <a href="/review" class="btn btn-outline-secondary btn-lg">Review</a>
-    <a href="/quiz/1" class="btn btn-outline-secondary btn-lg">Start Quiz!</a>
+    <a href="/review" class="btn btn-prev btn-outline-secondary btn-lg">Review</a>
+    <a href="/quiz/1" class="btn btn-next btn-outline-secondary btn-lg">Start Quiz!</a>
   </div>
 </div>
 {% endblock %}
