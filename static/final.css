@@ -76,6 +76,31 @@ body {
   color: white;
 }
 
+.display-3{
+  font-weight: bolder;
+  font-size: 80px;
+}
+
+.display-6{
+  color: rgb(65, 65, 65);   
+}
+
+#start-learning{
+  font-weight: bold;
+  border: 1px solid #1c4590;
+  min-width: 250px;
+}
+
+#test-your-know{
+  background-color: #f8f9fa;
+  color: rgb(65, 65, 65);
+  border: 1px solid rgb(65, 65, 65);
+}
+
+#test-your-know:hover {
+  background-color: rgb(65, 65, 65);
+  color: #f8f9fa;
+}
 
 @media (max-width: 576px) {
   .btn-prev,
@@ -87,7 +112,8 @@ body {
 }
 
 #lessonTitle{
-  font-size: 2.35em;
+  font-size: 2.75em;
+  font-weight: bolder;
 }
 
 .icon-container{
@@ -174,8 +200,9 @@ body {
   }
 }
 
-
-
+#review-title{
+  font-weight: bolder;
+}
 
 .bold{
     font-weight: bold;
@@ -212,6 +239,7 @@ body {
   padding: 10px;
   border: 1px solid #aaa;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .question-cell {
@@ -298,3 +326,21 @@ body {
   border: #1c4590;
   color: white;
 }
+
+#quiz-instructions{
+  font-size: 1.4em;
+  text-align: center;
+  color: rgb(65, 65, 65);
+}
+
+#quiz-title{
+  font-size: 1.70em;
+  color: rgb(65, 65, 65);
+  font-weight: bolder;
+}
+
+#drop-submit{
+  margin-bottom: 30px;
+  min-width: 300px;
+}
+
