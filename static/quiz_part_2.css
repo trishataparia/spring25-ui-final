@@ -1,190 +1,346 @@
-#instructions-1{
-    
-    margin-top: 30px;
-    font-size: 20px; /* was 25px*/
-    color: rgb(65, 65, 65)
+body {
+  font-family: 'Aleo', serif;
 }
-#instructions-2{
-    font-size: 20px;
-    font-weight: bold;
-    display: inline;
-    margin-right: 7px;
-    white-space: nowrap;
-    color: rgb(65, 65, 65)
-    
+.navbar {
+  background-color: #1c4590 !important;
 }
-#instructions-3{
-  font-size: 20px;
-  display: inline;
-  white-space: nowrap;
-  color: rgb(65, 65, 65)
+
+.navbar .nav-link {
+  color: white !important;
+}
+
+.navbar .nav-link.active {
+  font-weight: bold;
+  color: white !important;
+  border-bottom: 2px solid white;
+}
+
+.navbar-nav {
+  margin: 0 auto;
+}
+
+.navbar-toggler {
+  border-color: white !important;
+  border-width: 2.5px;
+}
+
+.navbar-toggler-icon {
+  background-image: none;
+  position: relative;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after,
+.navbar-toggler-icon div {
+  content: "";
+  background-color: white;
+  display: block;
+  height: 2px;
+  margin: 6px 0;
+  width: 100%;
 }
 
 
+.btn-prev {
+  background-color: #f8f9fa;
+  color: rgb(65, 65, 65);
+  font-weight: bold;
+  border: 1px solid rgb(65, 65, 65);
+  font-size: 1.25em;
+  padding: 12px 24px;
+  text-align: center;
+  width: 200px;
+}
 
-@media (max-width: 670px) { 
-  #instructions-1, #instructions-2, #instructions-3 {
-      font-size: 3vw; 
+.btn-prev:hover {
+  background-color: rgb(65, 65, 65);
+  color: #f8f9fa;
+}
+
+
+.btn-next {
+  background-color: #a8dadc;
+  color: white;
+  font-weight: bold;
+  border: 1px solid #1c4590;
+  font-size: 1.25em;
+  padding: 12px 24px;
+  text-align: center;
+  width: 200px;
+}
+
+.btn-next:hover {
+  background-color: #1c4590;
+  color: white;
+}
+
+.display-3{
+  font-weight: bolder;
+  font-size: 80px;
+}
+
+.display-6{
+  color: rgb(65, 65, 65);   
+}
+
+#start-learning{
+  font-weight: bold;
+  border: 1px solid #1c4590;
+  min-width: 250px;
+}
+
+#test-your-know{
+  background-color: #f8f9fa;
+  color: rgb(65, 65, 65);
+  border: 1px solid rgb(65, 65, 65);
+}
+
+#test-your-know:hover {
+  background-color: rgb(65, 65, 65);
+  color: #f8f9fa;
+}
+
+@media (max-width: 576px) {
+  .btn-prev,
+  .btn-next {
+      width: 150px;
+      font-size: 1.2em;
+      padding: 10px 20px;
   }
 }
 
-@media (max-width: 570px) { 
-  #question {
-      font-size: 20px !important;
-  }
+#lessonTitle{
+  font-size: 2.75em;
+  font-weight: bolder;
 }
 
-@media (max-width: 570px) { 
-  #identify-example {
-      font-size: 35px !important;
-  }
+.icon-container{
+  cursor: pointer;
+  height: 100%;
 }
 
-#identify-example{
-    font-size: 40px;
-    margin-top: 60px;
-    white-space: nowrap;
-    color: rgb(65, 65, 65);
-    font-weight: bolder;
-}
-#question{
-    font-size: 25px;
-    margin-top: 20px;
-    white-space: nowrap;
-    color: rgb(65, 65, 65)
-    
+.icon-container p {
+  font-size: 1.15em;
 }
 
-@media (max-width: 800px) { 
-   .answer-choice-block {
-      font-size: 5vw; /* Smaller on medium screens */
-  }
-}
-
-@media (max-width: 500px) { 
-   .answer-choice-block {
-      font-size: 6vw; /* Smaller on smaller screens */
-  }
-}
-
-.answer-choice-block{
-    width: 130px; /* or a fixed width like 300px */
-    height: 60px;
-    border: 2px solid black;
-    border-radius: 5px;
-    padding-top: 15px;
-    margin-top: 10px;
-    background-color: #f8f9fa; /* light grey, optional */
-    text-align: center;
-    vertical-align: bottom;
-    line-height: 18px;
-    cursor: grab; /* optional for draggable feel */
-    font-size: 15px;
-    color: rgb(65, 65, 65)
-    
-}
-#answer-bucket{
-    width: 130px; /* or a fixed width like 300px */
-    height: 60px;
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 15px;
-    margin-top: 70px;
-    background-color: #f8f9fa; /* light grey, optional */
-    text-align: center;
-    line-height: 18px;
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: rgb(65, 65, 65)
-    
-}
-.col{
-    display: flex;
+#dynamic-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  width: 100%;
+  max-width: 550px;
+  height: 325px;
+  overflow: hidden;
+  margin: 0 auto;
 }
-.video-box {
-    width: 520px;
-    height: 300px;
-    overflow: hidden;
-    border: 2px solid #000;
-    border-radius: 10px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-  }
-  
-.video-box iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-  .feedback-message {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    color: rgb(65, 65, 65)
-  }
-  /* Custom styles for the "Next" button */
-#next-button {
-    display: inline-block;
-    
-    border: 2px solid black;
-    
-    width: 220px;
-    height: 60px;
-    font-size: 20px;
-    background-color: #a8dadc; /* light grey, optional */
-    text-align: center;
-    padding: 12px;
-    text-decoration: none; /* Remove underline */
-    border-radius: 5px; /* Rounded corners */
-    margin-top: 60px;
-    cursor: pointer; /* Pointer on hover */
-    transition: background-color 0.3s ease; /* Smooth background color transition */
-    visibility: hidden;
-  }
-  a#next-button {
-    text-decoration: none;  /* Removes underline */
-    color: white;         /* Inherits the text color from its parent or container */
-    font-weight: bold;
-         /* Optionally makes the text bold */
+
+#display-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
-  
-  /* Hover effect for the button */
-  #next-button:hover {
-    background-color: #6cd4d7; /* Darker green on hover */
-  }
-  .answer-message-box {
-    padding: 15px;
-    border: 10px solid;
-    border-radius: 20px;
-    
-    text-align: center;
-    margin-top: 100px;
-    font-size: clamp(16px, 2.5vw, 18px);
-    max-width: 750px;
-    min-height: 150px;
-    width: 100%;
-    color: rgb(65, 65, 65);
-      
-    visibility: hidden;
-    margin-bottom: 10px;
-  }
-  
-  #answer-message-box.correct {
-    border-color: green;
-    background-color: #f8f9fa; /* light grey, optional */
-  }
-  
-  #answer-message-box.incorrect {
-    border-color: red;
-    background-color: #f8f9fa; /* light grey, optional */
+
+#display-content p {
+  font-size: 1.5em;
+  padding: 50px;
+}
+
+
+.responsive-video-container {
+  width: 500px;
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+.responsive-video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+
+@media (max-width: 768px) {
+  #dynamic-display {
+      height: 225px;
+      max-width: 100%;
   }
 
-  #next-button.show{
-    visibility: visible;
-  }
-  .show {
-    visibility: visible; /* When you want to show them */
+  .responsive-video-container {
+    width: 350px;
+    aspect-ratio: 16 / 9;
+    position: relative;
   }
 
-  
+  #lessonTitle {
+       font-size: 1.70em; 
+       margin-top: 50px;
+       margin-bottom: 45px;
+  }
+
+  #display-content p {
+    font-size: 1.20em;
+    padding: 30px;
+  }
+
+  .icon-row{
+        margin-top: 45px;
+        margin-bottom: 45px;
+  }
+
+  .icon-container p {
+    font-size: 1em;
+  }
+}
+
+#review-title{
+  font-weight: bolder;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.h4-format{
+  font-size: 1.40rem;
+  text-align: center;
+}
+
+.quiz-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quiz-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  gap: 10px;
+}
+
+.answer-tile {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.question-cell {
+  width: 100%;
+  font-size: 1rem;
+  padding: 10px;
+  white-space: normal;
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+.answer-zone {
+  width: 100%;
+  min-height: 60px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.answer-zone.ui-droppable-hover {
+  background-color: #a8dadc;
+}
+
+.answer-zone.hovering {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+.answer-tile.scaled{
+  transform: scale(1.1);
+  z-index: 11;
+}
+
+.word-bank-box {
+  display: flex;
+  border: 2px solid #1c4590;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: #f1f8ff;
+  justify-content: center;
+  align-items: center;
+}
+
+.word-bank {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.answer-tile.correct {
+  border: 3px solid #28a745;
+}
+
+.answer-tile.incorrect {
+  border: 3px solid #dc3545;
+}
+
+.incorrect-feedback{
+  font-weight: bold;
+  color: #dc3545;
+}
+
+.correct-feedback{
+  font-weight: bold;
+  color: #28a745;
+}
+
+.glow-on-hover {
+  background-color: #a8dadc;
+  border: #a8dadc;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.glow-on-hover:hover {
+  background-color: #1c4590;
+  border: #1c4590;
+  color: white;
+}
+
+#quiz-instructions{
+  font-size: 1.4em;
+  text-align: center;
+  color: rgb(65, 65, 65);
+}
+
+#quiz-title{
+  font-size: 1.70em;
+  color: rgb(65, 65, 65);
+  font-weight: bolder;
+}
+
+#drop-submit{
+  margin-bottom: 30px;
+  min-width: 300px;
+}
+
