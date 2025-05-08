@@ -15,3 +15,6 @@ And for running the server, make use firebase-admin and dotenv are installed:
 - pip install dotenv
 
 The server should be able to run with "python server.py" now!
+
+Additionally, to check the collected user data, please go to /debug page.
+This provides information for when a user entered each lesson page and each review page.
