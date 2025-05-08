@@ -135,7 +135,10 @@ user = {
         "Question7": "null",
         "Question8": "null"
     },
-    "2":{
+}
+
+userEnter = {
+    "1":{
         "Home": "null",
         "Lesson1": "null",
         "Lesson2": "null",
@@ -147,31 +150,31 @@ user = {
 
 @app.route('/')
 def home():
-    if 'user' not in session:
-        session['user'] = user.copy()
+    if 'userEnter' not in session:
+        session['userEnter'] = userEnter.copy()
 
-    session['user']["2"]["Home"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    session['userEnter']["1"]["Home"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     session.modified = True
 
     return render_template('home.html')
 
 @app.route('/learn/<int:item_id>')
 def view_item(item_id):
-    if 'user' not in session:
+    if 'userEnter' not in session:
         return redirect('/')
 
     lesson = lessons.get(str(item_id))  # Convert item_id to string to match keys
     if lesson is None:
         abort(404)  # Return a proper 404 error page
 
-    session['user']["2"][f"Lesson{item_id}"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    session['userEnter']["1"][f"Lesson{item_id}"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     session.modified = True
 
     return render_template('view_technique.html', lesson=lesson)
 
 @app.route('/debug')
 def debug():
-    return str(session.get('user', 'No user data'))
+    return str(session.get('userEnter', 'No user data'))
 
 @app.route('/get_lessons')
 def get_lessons():
@@ -187,14 +190,14 @@ def quiz_home():
 
 @app.route('/log_flashcard_entry', methods=['POST'])
 def log_flashcard_entry():
-    if 'user' not in session:
+    if 'userEnter' not in session:
         return "Session not initialized", 403
 
     title = request.form.get("title")
     if title:
         key = "Review_" + title.replace(" ", "_")
 
-        session['user']["2"][key] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        session['userEnter']["1"][key] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         session.modified = True
         return "Logged", 200
     else:
